@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Map Marker</title>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css" rel="stylesheet" />
+
+        <style>
+            body {
+            margin: 0;
+            padding: 0;
+            }
+
+            #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+
+        <script>
+            function createMapMarker() {
+            // DONE: add your own access token
+            mapboxgl.accessToken = 'pk.eyJ1IjoidGhlby1idWVubyIsImEiOiJjbG5nNjZ2dW8wMG56MmtsODN2MHBhem4wIn0.Kou4hDF7heuvt0Ux7h6GWw';
+
+            let map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [-46.67451128, -23.58592586],
+                zoom: 12,
+            });
+
+            // DONE: add a marker for your home to the map
+            var marker = new mapboxgl.Marker()
+            .setLngLat([-73.90283849, 40.77458219])
+            .addTo(map)
+            
+            // DONE: add a marker for your heart to the map
+            var homeMarker = new mapboxgl.Marker()
+            .setLngLat([-46.67451128, -23.58592586])
+            .addTo(map)
+            }
+            
+            //get lng.lat from: https://tool-online.com/en/map-tools.php
+
+            createMapMarker()
+        </script>
+    </body>
+</html>
